@@ -9,5 +9,5 @@ v2rayTerminal for linux terminal
 # Install v2ray
 <a href="https://www.v2ray.com/en/welcome/install.html">v2ray</a> 
 
-# Thanks
- Thanks for <a href="https://github.com/UncleBrook/v2rayT"> @UncleBrook</a> framework
+# Thanks & Notes
+ Basic framework from <a href="https://github.com/UncleBrook/v2rayT"> @UncleBrook</a>
