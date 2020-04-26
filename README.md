@@ -1,10 +1,7 @@
 # v2rayT
  v2rayTerminal for linux terminal
-<img src = "images/v2rayT.png" alt = "v2rayT" width="100%" height="100%">
-### install v2rayT
-#### [1] Open termianl and cd v2rayT folder
-#### [2] sudo mv v2rayT.py /usr/sbin/v2ray && chmod a+x /usr/sbin/v2rayT
-                                                             _______
+ 
+                                                              _______
                               ___   __   __                _/
             ___              | __| |_ | |_ | -----------  /
            |   |------------ |__ | | _| | _|             | freedom
@@ -12,11 +9,15 @@
            |___|             |   |server|  |
 
 
-[1] Subscription URL
-[2] About
-[3] Settings <Reset>
+####[1] Subscription URL
+####[2] About
+####[3] Settings <Reset>
 
- Enter:   
+#### Enter:   
+
+### install v2rayT
+#### [1] Open termianl and cd v2rayT folder
+#### [2] sudo mv v2rayT.py /usr/sbin/v2ray && chmod a+x /usr/sbin/v2rayT
 ### use v2rayT
 #### [1] Open terminal and input v2rayT
  
