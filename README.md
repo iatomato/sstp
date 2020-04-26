@@ -8,13 +8,13 @@
            |CIL|             | __| |_ | |_ |             |     world
            |___|             |   |server|  |
 
+'''
+[1] Subscription URL
+[2] About
+[3] Settings <Reset>
 
-####[1] Subscription URL
-####[2] About
-####[3] Settings <Reset>
-
-#### Enter:   
-
+ Enter:   
+'''
 ### install v2rayT
 #### [1] Open termianl and cd v2rayT folder
 #### [2] sudo mv v2rayT.py /usr/sbin/v2ray && chmod a+x /usr/sbin/v2rayT
