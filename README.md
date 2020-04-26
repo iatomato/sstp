@@ -1,18 +1,18 @@
 # v2rayT
  v2rayTerminal for linux terminal
  
-                                                                               _______
-                                               ___   __   __                _/
-                             ___              | __| |_ | |_ | -----------  /
-                            |   |------------ |__ | | _| | _|             | freedom
-                            |CIL|             | __| |_ | |_ |             |     world
-                            |___|             |   |server|  |
+                                                                                _______
+                                                ___   __   __                _/
+                              ___              | __| |_ | |_ | -----------  /
+                             |   |------------ |__ | | _| | _|             | freedom
+                             |CIL|             | __| |_ | |_ |             |     world
+                             |___|             |   |server|  |
 
-                 [1] Subscription URL
-                 [2] About
-                 [3] Settings <Reset>
+                  [1] Subscription URL
+                  [2] About
+                  [3] Settings <Reset>
 
-                  Enter:
+                   Enter:
 
 ### install v2rayT
 #### [1] Open termianl and cd v2rayT folder
