@@ -23,5 +23,5 @@
 # Install v2ray
  <a href="https://www.v2ray.com/en/welcome/install.html">v2ray</a>
 
-# Thanks
+# Reference
  Thanks for <a href="https://github.com/UncleBrook/v2rayT"> @UncleBrook</a> framework
