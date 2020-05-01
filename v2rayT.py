@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
-# v2rayT 2.0-dev
+# v2rayT 2.1-dev
 # Author: eqporyan
 # Build ++
 
@@ -90,47 +90,49 @@ class User(v2rayT):
         subscription_file = open(self.subscription_path, "r")
         subscription_url = subscription_file.read().strip()
         subscription_file.close()
-        if not subscription_url:
-            while True:
-                print("\033c")
-                with open(self.user_config + "/settings.json", "r") as get_config:
-                    config = json.load(get_config)
-                self.value = config["Logo"]
-                self.Logo(self.value)
-                #self.Tips()
-                branch = input("[1] Subscription URL\n[2] About\n[3] Settings <Reset>\n\n Enter: ")
-                if int(branch) == 1:
-                    subscription_url = self.AddSubscriptionURL()
-                    self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url))
-                if int(branch) == 2:
-                    os.system("google-chrome https://github.com/Eqpoqpe/v2rayT.git")
-                if int(branch) == 3:
-                    self.Settings()
-                if branch in "Backback":
-                    print("Nothing can back")
-        else:
-            while True:
-                print("\033c")
-                with open(self.user_config + "/settings.json", "r") as get_config:
-                    config = json.load(get_config)
-                self.value = config["Logo"]
-                self.Logo(self.value)
-                #self.Tips()
-                branch = int(input("[1] Resubscription\n[2] Refresh Config\n[3] Continue\n[4] Settings <Reset>\n\n ENTER: "))
-                if branch == 1:
-                    subscription_url = self.AddSubscriptionURL()
-                    self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url))
-                    break
-                elif branch == 2:
-                    self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url))
-                    break
-                elif branch == 3:
-                    self.config = self.ReadConfig()
-                    self.ServerNode()
-                    self.SetConfigFile()
-                    break
-                elif branch == 4:
-                    self.Settings()
+        while True:
+            if not subscription_url:
+                while True:
+                    print("\033c")
+                    with open(self.user_config + "/settings.json", "r") as get_config:
+                        config = json.load(get_config)
+                    self.value = config["Logo"]
+                    self.Logo(self.value)
+                    #self.Tips()
+                    branch = input("[1] Subscription URL\n[2] About\n[3] Settings <Reset>\n\n Enter: ")
+                    if int(branch) == 1:
+                        subscription_url = self.AddSubscriptionURL()
+                        self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url))
+                        break
+                    if int(branch) == 2:
+                        os.system("google-chrome https://github.com/Eqpoqpe/v2rayT.git")
+                    if int(branch) == 3:
+                        self.Settings()
+                    if branch in "Backback":
+                        print("Nothing can back")
+            else:
+                while True:
+                    print("\033c")
+                    with open(self.user_config + "/settings.json", "r") as get_config:
+                        config = json.load(get_config)
+                    self.value = config["Logo"]
+                    self.Logo(self.value)
+                    #self.Tips()
+                    branch = int(input("[1] Resubscription\n[2] Refresh Config\n[3] Continue\n[4] Settings <Reset>\n\n ENTER: "))
+                    if branch == 1:
+                        subscription_url = self.AddSubscriptionURL()
+                        self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url))
+                        break
+                    elif branch == 2:
+                        self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url))
+                        break
+                    elif branch == 3:
+                        self.config = self.ReadConfig()
+                        self.ServerNode()
+                        self.SetConfigFile()
+                        break
+                    elif branch == 4:
+                        self.Settings()
                     
         self.ServerNode()
         self.SetConfigFile()
