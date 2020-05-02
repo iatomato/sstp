@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: UTF-8 -*-
-# v2rayT 2.1-dev
+# v2rayT 2.1-master
 # Author: eqporyan
 # Build ++
 

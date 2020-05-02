@@ -1,0 +1,8 @@
+#v2rayT_dev > logs
+
+"logs": {
+	"1.0": "build framework",
+	"2.0": "N/A",
+	"2.1": "fixed bugs"
+	"2.2": "support v2ray-core ON/OFF"
+}
