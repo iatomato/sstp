@@ -33,6 +33,9 @@ class v2rayT:
            
     def Tips(self):
         print("Enter <Stop> to stop, <Back> to back.\n")
+    
+    def BackOneStep(self):
+        pass
         
     def CheckFiles(self):
         if not os.path.exists(self.v2rayTerminal_path):

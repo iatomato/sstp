@@ -4,5 +4,8 @@
 	"1.0": "build framework",
 	"2.0": "N/A",
 	"2.1": "fixed bugs"
-	"2.2": "support v2ray-core ON/OFF"
+	"2.2": {
+		"changed": "split config format goods for dev"
+		"new feature": "support v2ray-core ON/OFF"
+	}
 }
