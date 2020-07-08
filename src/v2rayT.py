@@ -7,7 +7,6 @@
 # Build ++
 
 '''new build'''
-# new settings, you maybe won't found it
 
 from time import sleep
 import sys
