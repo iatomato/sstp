@@ -14,9 +14,8 @@
 
                    Enter:
 
-### install v2rayT
-#### [1] Open termianl and cd v2rayT folder
-#### [2] sudo mv v2rayT.py /usr/sbin/v2ray && chmod a+x /usr/sbin/v2rayT
+## install v2rayT
+ run <install.sh> or lmitate it
  
 # Install v2ray-core
  <a href="https://www.v2ray.com/en/welcome/install.html">v2ray</a>

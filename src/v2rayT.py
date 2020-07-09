@@ -3,7 +3,7 @@
 '''FREEDOM ISN'T FREE'''
 # -*- coding: UTF-8 -*-
 # (C) copyright 2020 eqporyan (Ryan William)
-# v2rayT 3.0
+# v2rayT vsersion 2020
 # Build ++
 
 '''new build'''
@@ -57,6 +57,10 @@ class v2rayT:
         #    self.SYS_PARTY_VALUE_1 = 1
         #else:
         #   self.SYS_PARTY_VALUE_1 = 0
+        if os.path.exists(self.server_node_config_path):
+            self.SYS_PARTY_VALUE_2 = 1
+        else:
+            self.SYS_PARTY_VALUE_2 = 0
             
     # ----------------------------- files system --------------------------
 
@@ -93,11 +97,16 @@ class v2rayT:
         return config
         
     def ReadConfig(self, paremeter):
-        getfile = open(self.server_node_config_path, "r")
-        getfile_backup = open(self.server_node_config_backup, 'r')
-        self.config = paremeter.read().strip()
-        getfile.close()
-        return self.config
+        if paremeter == 1:
+            getfile = open(self.server_node_config_path, "r")
+            self.config = getfile.read().strip()
+            getfile.close()
+            return self.config
+        else:
+            getfile_backup = open(self.server_node_config_backup, 'r')
+            self.config = getfile_backup.read().strip()
+            getfile_backup.close()
+            return self.config
         
     def LoadSubscriptionContent(self, url, paremeter):
         try:
@@ -141,6 +150,7 @@ class User(v2rayT):
                     else:
                         self.LOGO_PAREMETER = '0'
                     self.Logo(self.LOGO_X)
+                    OPTION_LIST = []
                     SYS_VALUE = 0
                     DEFUALT_VALUE = 0
                     with open(self.user_config + "/settings.json", "r") as get_config:
@@ -151,7 +161,6 @@ class User(v2rayT):
                     else:
                         MAX_OPTION = 3
                         DEFUALT_OPTION = [" Subscription URL\n", " About\n", " Settings <Reset>\n"]
-                    OPTION_LIST = []
                     for get_value in range(1, (MAX_OPTION + 1)):
                         GET_STRING = "{}{}{}".format("[", get_value, "]")
                         OPTION_LIST.append(GET_STRING)
@@ -160,24 +169,31 @@ class User(v2rayT):
                         DEFUALT_VALUE += 1
                     for GET_STRING in OPTION_LIST:
                         print(GET_STRING)
-                    branch = input(": ")
-                    if branch in '1':
-                        subscription_url = self.AddSubscriptionURL() # new subscription definition
-                        self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url, SYS_VALUE))
-                        break
-                    elif branch in '2':
-                        os.system("google-chrome https://github.com/Eqpoqpe/v2rayT")
-                    elif branch in '3':
-                        if MAX_OPTION == 3:
+                    if MAX_OPTION == 3:
+                        branch = input(": ")
+                        if branch == '1':
+                            subscription_url = self.AddSubscriptionURL() # new subscription definition
+                            self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url, SYS_VALUE))
+                            break
+                        elif branch == '2':
+                            os.system("google-chrome https://github.com/Eqpoqpe/v2rayT")
+                        elif branch == '3':
                             self.Settings()
-                        elif MAX_OPTION == 4:
-                            if branch == 3:
-                                self.config = self.ReadConfig("getfile_backup")
-                                self.ServerNode()
-                                self.SetConfigFile()
-                                break
-                            elif branch == 4:
-                                self.Settings()
+                    elif MAX_OPTION == 4:
+                        branch = input(": ")
+                        if branch == '1':
+                            subscription_url = self.AddSubscriptionURL()
+                            self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url, SYS_VALUE))
+                            break
+                        elif branch == '2':
+                            os.system("google-chrome https://github.com/Eqpoqpe/v2rayT")
+                        elif branch == '3':
+                            self.config = self.ReadConfig(0)
+                            self.ServerNode()
+                            self.SetConfigFile()
+                            break
+                        elif branch == '4':
+                            self.Settings()
             else:
                 while True:
                     print("\033c")
@@ -203,7 +219,7 @@ class User(v2rayT):
                         self.config = self.AddConfig(self.LoadSubscriptionContent(subscription_url, SYS_VALUE))
                         break
                     elif branch in '3':
-                        self.config = self.ReadConfig("getfile")
+                        self.config = self.ReadConfig(1)
                         self.ServerNode()
                         self.SetConfigFile()
                         break
@@ -386,8 +402,8 @@ class User(v2rayT):
         else:
             OPTION_LIST.append("[1] ON LOGO\n")
         OPTION_LIST.append("[2] *CLEAN\n")
-        if self.SYS_PARTY_VALUE_0 == 1:
-            OPTION_LIST.append("[3] RECOVER BACKUP")
+        #if self.SYS_PARTY_VALUE_0 == 1:
+        #    OPTION_LIST.append("[3] RECOVER BACKUP\n")
         for get_point in OPTION_LIST:
             print(get_point)
         branch = input(": ")
@@ -402,22 +418,22 @@ class User(v2rayT):
                 os.remove(self.server_node_config_path)
                 exit()
         # Recover Backup
-        elif len(OPTION_LIST) == 3:
-            if branch == 3:
-                list_number = []
-                for get in range(6):
-                    get_string = str(get) + ".. "
-                    list_number.append(get_string)
-                output_string = ".. "
-                for get_string in list_number:
-                    output_string += get_string
-                    print("\033c")
-                    print("Press \"Ctrl + C\" to stop recover\n")
-                    print(output_string)
-                    sleep(1)
-                os.remove(self.server_node_config_path)
-                os.rename(self.server_node_config_backup, self.server_node_config_path)
-                print("Done!")
+        #elif len(OPTION_LIST) == 3:
+        #    if branch == '3':
+        #        list_number = []
+        #        for get in range(6):
+        #            get_string = str(get) + ".. "
+        #            list_number.append(get_string)
+        #        output_string = ".. "
+        #        for get_string in list_number:
+        #            output_string += get_string
+        #            print("\033c")
+        #            print("Press \"Ctrl + C\" to stop recover\n")
+        #            print(output_string)
+        #            sleep(1)
+        #        os.remove(self.server_node_config_path)
+        #        os.rename(self.server_node_config_backup, self.server_node_config_path)
+        #        print("Done!")
 
 if __name__ == "__main__":
     A = User()

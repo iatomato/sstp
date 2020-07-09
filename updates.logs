@@ -1,8 +1,0 @@
-************THIS IS FIXED LOGS**************
-
-----------------Jul 3 2020-----------------
-
-* if resubscription error can't deletel node config
-* waiting resubscription for success, update node config
-
--------------------------------------------
