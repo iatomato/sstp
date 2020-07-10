@@ -118,12 +118,11 @@ class v2rayT:
         except:
             print("\nAddress error please check it\n")
             if paremeter == 0:
-              os.remove(self.subscription_path)
-              os.remove(self.server_node_config_path)
+                os.remove(self.subscription_path)
+                os.remove(self.server_node_config_path)
             elif paremeter == 1:
                 os.remove(self.subscription_path)
                 os.rename(self.server_node_config_path, self.server_node_config_backup)
-                os.remove(self.server_node_config_path)
             exit()
      # ----------------------------- basic version 2020------------------------
 
