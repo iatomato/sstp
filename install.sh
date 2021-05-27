@@ -1,8 +1,10 @@
 #!/bin/bash
-DIR=src/v2rayT.py
-sudo chomd a+x ${DIR} && mv ${DIR} /usr/sbin/v2rt
+
+declare install_dir=src/service.py
+sudo chomd a+x $install_dir && sudo cp $install_dir /usr/sbin/v2ctl
+
 if [ $? -eq 0 ]
 then
-	echo "done!"
-	printf "Try enter \"v2rt\" to use it\n"
+	echo "install [OK]"
+	echo "Typing v2ctl on console (terminal)"
 fi
