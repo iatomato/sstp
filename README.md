@@ -15,7 +15,7 @@
                    Enter:
 
 ## install v2rayT
- run <install.sh> or lmitate it
+ run `install.sh` or lmitate it
 
 # Update & Maintenance
 
