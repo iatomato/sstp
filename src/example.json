@@ -1,0 +1,141 @@
+{
+        "dns": {
+        "hosts": {
+          "domain:googleapis.cn": "googleapis.com"
+        },
+        "servers": [
+          "1.1.1.1"
+        ]
+        },
+        "inbounds": [
+        {
+          "listen": "127.0.0.1",
+          "port": 10806,
+          "protocol": "socks",
+          "settings": {
+          "auth": "noauth",
+          "udp": True,
+          "userLevel": 8
+          },
+          "sniffing": {
+          "destOverride": [
+            "http",
+            "tls"
+          ],
+          "enabled": True
+          },
+          "tag": "socks"
+        },
+        {
+          "listen": "127.0.0.1",
+          "port": 10809,
+          "protocol": "http",
+          "settings": {
+          "userLevel": 8
+          },
+          "tag": "http"
+        }
+        ],
+        "log": {
+        "loglevel": "warning"
+        },
+        "outbounds": [
+        {
+          "mux": {
+          "concurrency": -1,
+          "enabled": False
+          },
+          "protocol": "vmess",
+          "settings": {
+          "vnext": [
+            {
+              "address": address,
+              "port": port,
+              "users": [
+                {
+                  "alterId": alter_id,
+                  "id": users_id,
+                  "level": 8,
+                  "security": "auto"
+                }
+              ]
+            }
+          ]
+          },
+          "streamSettings": {
+          "network": "ws",
+          "security": "",
+          "wssettings": {
+            "connectionReuse": True,
+            "headers": {
+              "Host": ""
+            },
+            "path": "/qwert001"
+          }
+          },
+          "tag": "proxy"
+        },
+        {
+          "protocol": "freedom",
+          "settings": {},
+          "tag": "direct"
+        },
+        {
+          "protocol": "blackhole",
+          "settings": {
+          "response": {
+            "type": "http"
+          }
+          },
+          "tag": "block"
+        }
+        ],
+        "policy": {
+        "levels": {
+          "8": {
+          "connIdle": 300,
+          "downlinkOnly": 1,
+          "handshake": 4,
+          "uplinkOnly": 1
+          }
+        },
+        "system": {
+          "statsInboundUplink": True,
+          "statsInboundDownlink": True
+        }
+        },
+        "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+          {
+          "domain": [
+            "domain:googleapis.cn"
+          ],
+          "outboundTag": "proxy",
+          "type": "field"
+          },
+          {
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct",
+          "type": "field"
+          },
+          {
+          "ip": [
+            "geoip:cn"
+          ],
+          "outboundTag": "direct",
+          "type": "field"
+          },
+          {
+          "domain": [
+            "geosite:cn"
+          ],
+          "outboundTag": "direct",
+          "type": "field"
+          }
+        ]
+        },
+        "stats": {}
+}
