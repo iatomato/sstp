@@ -1,11 +1,5 @@
 #!/usr/bin/python3
 
-'''FREEDOM ISN'T FREE'''
-# -*- coding: UTF-8 -*-
-# (C) copyright 2020 eqporyan (Ryan William)
-# v2rayT vsersion 2020
-# Build ++
-
 '''new build'''
 
 from time import sleep
